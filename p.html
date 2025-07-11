@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>HBD ibrahim</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: url('WhatsApp Image 2025-07-11 at 20.12.19.jpeg');
+            background-size: cover;
+            text-align: center;
+            padding: 50px;
+            color: #333;
+            overflow: hidden;
+        }
+
+        .card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: inline-block;
+            max-width: 600px;
+            animation: fadeIn 1.5s ease-in-out;
+            z-index: 1;
+            position: relative;
+        }
+
+        h1 {
+            color: #ff69b4;
+            font-size: 2.8em;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .emoji {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff4081;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .confetti {
+            position: absolute;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            opacity: 0.8;
+            animation: fall 3s linear infinite;
+            z-index: 9999;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card" id="ucapanCard">
+        <div class="emoji">🎂🎉🥳</div>
+        <h1>HBD, Ibrahim!</h1>
+        
+        <div class="emoji">😁😁😁</div>
+
+        <button onclick="tampilkanKonfeti()">Celebrate 🎉</button>
+    </div>
+
+    <script>
+        function tampilkanKonfeti() {
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = getWarnaRandom();
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                confetti.style.width = confetti.style.height = (Math.random() * 8 + 4) + 'px';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 4000);
+            }
+        }
+
+        function getWarnaRandom() {
+            const warna = ['#ff69b4', '#ffcc00', '#00ccff', '#66ff66', '#ff6666', '#9933ff'];
+            return warna[Math.floor(Math.random() * warna.length)];
+        }
+    </script>
+</body>
+</html>
